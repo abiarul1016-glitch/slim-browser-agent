@@ -1,2 +1,2 @@
 # slim-browser-agent
-A basic script, allowing an agent, with three simple tools of navigating to URLs, reading text from a page, and clicking certain elements, allowing it capabilities to navigate the web, but efficiently due to its slimness.
+A slim browser agent, with access to only three tools: URL navigation, reading text off a page, clicking elements with text, to allow it to navigate the web, but it much more efficient, and faster than larger scripts.
