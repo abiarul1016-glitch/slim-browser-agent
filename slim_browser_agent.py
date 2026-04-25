@@ -29,7 +29,7 @@ def main():
         "fill_textbox": fill_textbox,
     }
 
-    USING_FUNCTIONS = [navigate_to_url, extract_text_from_page]
+    USING_FUNCTIONS = [navigate_to_url, extract_text_from_page, click_button_with_text]
 
     messages = [
         {
