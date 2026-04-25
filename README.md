@@ -13,11 +13,21 @@ A slim browser agent that maximizes browsing speed and efficiency.
 
 ---
 
+## What and why?
+
+MCP servers, as great as they are for extending your model's functionality, are typically too large and clunky, heavily slowing your model down by increasing its overhead. It was due to this same problem that I faced with Playwright's MCP server and Chrome DevTools MCP server that led me to create this slimmed-down browser agent.
+
+By allowing the agent to only access a maximum of **three simple tools** — navigating to URLs, extracting the visible text from a page, and clicking a button with certain text (only if enabled) — the reasoning overhead on the model is greatly reduced, increasing its performance. Furthermore, since we force it to use tools such as navigating via URLs (the clicking function is turned off by default and can be enabled manually for more complex tasks), and since the LLM understands URL structures and how additional parameters can be passed in as an HTTP GET request, we completely avoid the issue of creating an element tree for the model, having it decide which element to click, and worst of all, loading it all into memory each time.
+
+Admittedly, on much more powerful machines, these issues are not that grave. But when running models locally, the savings this slimmed edition allows for are greatly noticeable — allowing browsing tasks to be completed in the background with minimum resource utilization. Most importantly, due to these savings, the immense data analysis capabilities of the LLM are retained, as it can focus more on returning a detailed response rather than waiting infinitely to decide which button to click.
+
+---
+
 ## What is it?
 
 Browser agents are often bloated with dozens of tools, leaving the LLM confused about which one to use. **slim-browser-agent** takes a different approach: a minimal, focused toolset of at most **three tools** so the model can act quickly and decisively.
 
-Paste a task, and the agent navigates, extracts text, and clicks—iterating with the LLM until the job is done.
+Paste a task, and the agent navigates, extracts text, and clicks — iterating with the LLM until the job is done.
 
 ---
 
@@ -33,7 +43,9 @@ Paste a task, and the agent navigates, extracts text, and clicks—iterating wit
 
 ## How it works
 
-The agent runs a simple ReAct-style loop:
+Initially, the program was written as a simple `while` loop, allowing the model via Ollama to keep calling tools to answer a query. It was later refactored into classes — `BrowserManager` and `WebAgent` — so the page context did not need to be juggled around, rapidly improving the performance of the application.
+
+The agent runs a ReAct-style loop:
 
 1. The user provides a task via the CLI prompt.
 2. The LLM receives the task along with the page text (or previous tool results) and decides which tool to call, if any.
