@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from ollama import ResponseError, chat
 from playwright.sync_api import (
     Browser,
@@ -15,7 +17,7 @@ AVAILABLE_MODELS = {
 SELECTED_MODEL = AVAILABLE_MODELS.get("qwen3.6")
 
 # Change CLICK to True to activate clicking functionality
-CLICK = False
+CLICK = True
 
 
 class BrowserManager:
@@ -93,11 +95,17 @@ class BrowserManager:
 class WebAgent:
     """Handles the conversation loop and tool execution."""
 
+    date = datetime.today()
+    human_formatted_date = date.strftime("%B %d, %Y")
+
     def __init__(self, model, browser_manager: BrowserManager, click=False):
         self.model = model
         self.browser = browser_manager
         self.messages = [
-            {"role": "system", "content": "You are a web agent"},
+            {
+                "role": "system",
+                "content": f"You are a web agent. The date today is: {self.human_formatted_date}, for your context.",
+            },
         ]
         self.click = click
 
