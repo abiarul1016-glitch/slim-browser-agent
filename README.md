@@ -1,4 +1,4 @@
-# slim-browser-agent
+# browse light.
 
 A slim browser agent that maximizes browsing speed and efficiency.
 
