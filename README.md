@@ -113,8 +113,8 @@ playwright/             # Playwright auth state directory
 
 <div align="center">
 
-browse light. • 🪶
-
 _Slim tools. Fast browsing. No bloat._
+
+browse light. • 🪶
 
 </div>
