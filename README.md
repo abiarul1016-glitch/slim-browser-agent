@@ -4,7 +4,9 @@ A slim browser agent that maximizes browsing speed and efficiency.
 
 ---
 
-<!-- colour purple - 300059 -->
+[![Quick Demo](https://img.youtube.com/vi/3VUO9OXRhY8/maxresdefault.jpg)](https://www.youtube.com/watch?v=3VUO9OXRhY8)
+
+---
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 [![Ollama](https://img.shields.io/badge/Ollama-fff?style=for-the-badge&logo=ollama&logoColor=000)](#)
@@ -102,7 +104,7 @@ playwright/             # Playwright auth state directory
 
 ## What's next
 
-- [ ] Add more tools (e.g., fill forms, download files) while keeping the total ≤ 3
+- [ ] Add more tools (e.g., fill forms, download files) while trying to prioritize speed
 - [ ] Support headless mode for background automation
 - [ ] Add structured output parsing for extracted data
 - [ ] Export browsing sessions as markdown reports
