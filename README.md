@@ -15,7 +15,7 @@ A slim browser agent that maximizes browsing speed and efficiency.
 
 ---
 
-## What and why?
+## Abstract
 
 MCP servers, as great as they are for extending your model's functionality, are typically too large and clunky, heavily slowing your model down by increasing its overhead. It was due to this same problem that I faced with Playwright's MCP server and Chrome DevTools MCP server that led me to create this slimmed-down browser agent.
 
