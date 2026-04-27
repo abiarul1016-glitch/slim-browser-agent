@@ -54,7 +54,7 @@ class BrowserManager:
         """
         try:
             self.page.goto(url)
-            return f"Successfully navigated to {url}!"
+            return f"Successfully navigated to: {url}!"
         except Exception as e:
             return f"Failed to navigate to {url} due to: {e}"
 
@@ -81,9 +81,9 @@ class BrowserManager:
 
         try:
             self.page.get_by_text(text).first.click()
-            return f"Clicked the button with text {text}!"
+            return f"Clicked the button with text: {text}!"
         except:
-            return f"Failed to click the button with text {text}"
+            return f"Failed to click the button with text: {text}"
 
     def close(self):
         # TODO: make saving to state.json more dynamic, perhaps use pathlib?
@@ -104,7 +104,7 @@ class WebAgent:
         self.messages = [
             {
                 "role": "system",
-                "content": f"You are a web agent. The date today is: {self.human_formatted_date}, for your context.",
+                "content": "You are a web agent. You have access to functions which allows you to access the browser and navigate pages. Also, you are in an agent loop, so you are free to use whatever function you wish, and as many you like. Try to pass arguments into the url (when applicable), rather than clicking, to preserve resources and increase efficiencies by decreasing overhead.",
             },
         ]
         self.click = click

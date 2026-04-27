@@ -2,9 +2,7 @@
 
 A slim browser agent that maximizes browsing speed and efficiency.
 
----
-
-[![Quick Demo](https://img.youtube.com/vi/3VUO9OXRhY8/maxresdefault.jpg)](https://www.youtube.com/watch?v=3VUO9OXRhY8)
+![browse light. Logo](assets/logo.png)
 
 ---
 
@@ -15,6 +13,8 @@ A slim browser agent that maximizes browsing speed and efficiency.
 
 ---
 
+[![Quick Demo](https://img.youtube.com/vi/3VUO9OXRhY8/maxresdefault.jpg)](https://www.youtube.com/watch?v=3VUO9OXRhY8)
+
 ## Abstract
 
 MCP servers, as great as they are for extending your model's functionality, are typically too large and clunky, heavily slowing your model down by increasing its overhead. It was due to this same problem that I faced with Playwright's MCP server and Chrome DevTools MCP server that led me to create this slimmed-down browser agent.
@@ -23,15 +23,11 @@ By allowing the agent to only access a maximum of **three simple tools** — nav
 
 Admittedly, on much more powerful machines, these issues are not that grave. But when running models locally, the savings this slimmed edition allows for are greatly noticeable — allowing browsing tasks to be completed in the background with minimum resource utilization. Most importantly, due to these savings, the immense data analysis capabilities of the LLM are retained, as it can focus more on returning a detailed response rather than waiting infinitely to decide which button to click.
 
----
-
 ## What is it?
 
 Browser agents are often bloated with dozens of tools, leaving the LLM confused about which one to use. **slim-browser-agent** takes a different approach: a minimal, focused toolset of at most **three tools** so the model can act quickly and decisively.
 
 Paste a task, and the agent navigates, extracts text, and clicks — iterating with the LLM until the job is done.
-
----
 
 ## Features
 
@@ -40,8 +36,6 @@ Paste a task, and the agent navigates, extracts text, and clicks — iterating w
 - **Persistent browser state** — cookies and storage are saved to `state.json`, so the agent picks up where it left off across sessions.
 - **Iterative reasoning loop** — the agent alternates between tool calls and LLM inference until it reaches a final answer.
 - **Toggleable click mode** — enable or disable the click tool via a single `CLICK` flag for lighter or heavier browsing.
-
----
 
 ## How it works
 
@@ -57,8 +51,6 @@ The agent runs a ReAct-style loop:
 
 By limiting the tool set to three or fewer, the model spends less time reasoning about _which_ tool to use and more time actually solving the task.
 
----
-
 ## Tech stack
 
 | Layer                  | Technology                   | Purpose                                          |
@@ -66,8 +58,6 @@ By limiting the tool set to three or fewer, the model spends less time reasoning
 | **Language**           | Python 3.12+                 | Agent orchestration and LLM integration          |
 | **Local LLM**          | Ollama (Qwen 3.5 / Qwen 3.6) | On-device reasoning and tool selection           |
 | **Browser Automation** | Playwright (Sync API)        | Headful Chromium browsing with state persistence |
-
----
 
 ## Running locally
 
@@ -89,8 +79,6 @@ Then answer prompts in the CLI. Type `quit` to exit.
 
 > **Note:** Make sure Ollama is running locally with the desired model pulled (e.g., `ollama pull qwen3.6:35b-a3b-coding-nvfp4`).
 
----
-
 ## Project structure
 
 ```
@@ -99,8 +87,6 @@ browser_tools.py        # Playwright tool definitions (navigate, extract, click)
 state.json              # Saved browser cookies and storage
 playwright/             # Playwright auth state directory
 ```
-
----
 
 ## What's next
 
